@@ -48,7 +48,7 @@
             background: #fc0213;
             background: rgba(216, 0, 14, 0.8);
             border-radius: 50% 50%;
-            transform-origin: 50% -150px;
+            transform-origin: 50% -100px;
             animation: swing 5s infinite ease-in-out;
             box-shadow: -5px 5px 30px 4px rgb(255, 131, 36);
         }
@@ -61,7 +61,7 @@
             background: #fc0213;
             background: rgba(216, 0, 14, 0.8);
             border-radius: 50% 50%;
-            transform-origin: 50% -150px;
+            transform-origin: 50% -100px;
             animation: swing 3s infinite ease-in-out;
             box-shadow: -5px 5px 50px 4px rgb(255, 131, 36);
         }
@@ -88,10 +88,10 @@
          
         .xian {
             position: absolute;
-            top: -150px;
+            top: -100px;
             left: 60px;
             width: 2px;
-            height: 150px;
+            height: 100px;
             background: #dc8f03;
         }
          
@@ -192,7 +192,7 @@
             padding: 30px;
             text-align: center;
             transition: transform 0.3s ease;
-            margin-top: 80px;
+            margin-top: 60px;
         }
         
         .card:hover {
@@ -335,63 +335,140 @@
             font-size: 12px;
         }
         
-        @media (max-width: 480px) {
-            .card {
-                padding: 20px;
-                margin-top: 60px;
-            }
-            
-            .title {
-                font-size: 22px;
-            }
-            
-            .license-plate {
-                font-size: 22px;
-                letter-spacing: 3px;
-                padding: 15px 10px;
-            }
-            
-            .phone-number {
-                font-size: 20px;
-            }
-            
+        @media (max-width: 768px) {
             .deng-box, .deng-box1 {
+                position: absolute;
                 top: 10px;
             }
             
             .deng-box {
-                left: 10px;
+                left: 5px;
             }
             
             .deng-box1 {
-                right: 10px;
+                right: 5px;
             }
             
             .deng {
-                width: 90px;
-                height: 70px;
-                margin: 30px;
+                width: 80px;
+                height: 60px;
+                margin: 20px;
+                transform-origin: 50% -60px;
             }
             
             .deng-a {
-                width: 75px;
-                height: 70px;
+                width: 65px;
+                height: 60px;
+                margin: 8px 6px 6px 7px;
             }
             
             .deng-b {
-                width: 35px;
-                height: 70px;
-                margin-left: 20px;
+                width: 30px;
+                height: 60px;
+                margin: -2px 6px 6px 17px;
             }
             
             .xian {
-                top: -120px;
-                left: 45px;
-                height: 120px;
+                top: -60px;
+                left: 40px;
+                height: 60px;
             }
             
             .deng-t {
-                font-size: 1.4rem;
+                font-size: 1.2rem;
+                line-height: 20px;
+                margin-top: 5px;
+            }
+            
+            .deng:before {
+                top: -5px;
+                left: 19px;
+                height: 8px;
+                width: 40px;
+            }
+            
+            .deng:after {
+                bottom: -5px;
+                left: 7px;
+                height: 8px;
+                width: 40px;
+                margin-left: 13px;
+            }
+            
+            .shui-a {
+                margin: -3px 0 0 39px;
+                width: 4px;
+                height: 15px;
+            }
+            
+            .shui-b {
+                top: 10px;
+                width: 8px;
+                height: 8px;
+            }
+            
+            .shui-c {
+                top: 13px;
+                width: 8px;
+                height: 25px;
+            }
+            
+            .card {
+                margin-top: 40px;
+                padding: 20px;
+            }
+            
+            .license-plate {
+                font-size: 22px;
+                padding: 15px 10px;
+                letter-spacing: 3px;
+            }
+            
+            .plate-dot {
+                width: 6px;
+                height: 6px;
+                margin: 0 8px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .deng-box, .deng-box1 {
+                top: 5px;
+            }
+            
+            .deng {
+                width: 70px;
+                height: 50px;
+                margin: 15px;
+                transform-origin: 50% -50px;
+            }
+            
+            .deng-a {
+                width: 55px;
+                height: 50px;
+                margin: 6px 5px 5px 6px;
+            }
+            
+            .deng-b {
+                width: 25px;
+                height: 50px;
+                margin: -2px 5px 5px 14px;
+            }
+            
+            .xian {
+                top: -50px;
+                left: 35px;
+                height: 50px;
+            }
+            
+            .deng-t {
+                font-size: 1rem;
+                line-height: 16px;
+                margin-top: 3px;
+            }
+            
+            .card {
+                margin-top: 30px;
             }
         }
     </style>
@@ -430,7 +507,7 @@
     
     <!-- 主要内容 -->
     <div class="card">
-        <h1 class="title">临时停车 请多关照！</h1>
+        <h1 class="title">临时停车 请多关照</h1>
         <div class="license-plate">
             <span class="plate-province">鄂E</span>
             <span class="plate-dot"></span>
