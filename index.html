@@ -33,11 +33,12 @@
             justify-content: space-between;
             padding: 0 20px;
             z-index: 10;
+            pointer-events: none;
         }
         
         .lantern {
-            width: 90px;
-            height: 140px;
+            width: 80px;
+            height: 120px;
             position: relative;
             animation: swing 4s infinite ease-in-out;
         }
@@ -51,36 +52,39 @@
         }
         
         .lantern-rope {
-            width: 4px;
-            height: 30px;
+            width: 3px;
+            height: 25px;
             background: #8B4513;
             position: absolute;
-            top: -30px;
-            left: 43px;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
             border-radius: 2px;
         }
         
         .lantern-top {
-            width: 30px;
-            height: 15px;
+            width: 25px;
+            height: 12px;
             background: #D2691E;
             position: absolute;
             top: 0;
-            left: 30px;
+            left: 50%;
+            transform: translateX(-50%);
             border-radius: 5px 5px 0 0;
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         
         .lantern-body {
-            width: 90px;
-            height: 100px;
+            width: 80px;
+            height: 90px;
             background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
-            border-radius: 45px;
+            border-radius: 40px;
             position: absolute;
-            top: 15px;
+            top: 12px;
+            left: 0;
             box-shadow: 
                 inset 0 0 20px rgba(255, 215, 0, 0.3),
-                0 0 30px rgba(211, 47, 47, 0.5);
+                0 0 20px rgba(211, 47, 47, 0.5);
             overflow: hidden;
         }
         
@@ -98,38 +102,40 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            border-radius: 45px;
+            border-radius: 40px;
             border: 2px solid rgba(255, 215, 0, 0.5);
         }
         
         .lantern-bottom {
-            width: 30px;
-            height: 15px;
+            width: 25px;
+            height: 12px;
             background: #D2691E;
             position: absolute;
-            bottom: 25px;
-            left: 30px;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             border-radius: 0 0 5px 5px;
             box-shadow: 0 -2px 4px rgba(0,0,0,0.3);
         }
         
         .lantern-tassel {
-            width: 6px;
-            height: 40px;
+            width: 4px;
+            height: 35px;
             background: linear-gradient(to bottom, #FFD700, #8B4513);
             position: absolute;
-            bottom: -40px;
-            left: 42px;
-            border-radius: 3px;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
         }
         
         .lantern-tassel::after {
             content: '';
             position: absolute;
-            bottom: -10px;
-            left: -7px;
-            width: 20px;
-            height: 15px;
+            bottom: -8px;
+            left: -6px;
+            width: 16px;
+            height: 12px;
             background: #FFD700;
             border-radius: 50%;
             clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
@@ -137,23 +143,23 @@
         
         .lantern-text {
             position: absolute;
-            top: 50%;
+            top: 40%;
             left: 50%;
             transform: translate(-50%, -50%);
             color: #FFD700;
             font-weight: bold;
-            font-size: 26px;
+            font-size: 22px;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
             z-index: 2;
         }
         
         .lantern-text.bottom {
-            top: 70%;
+            top: 65%;
         }
         
         @keyframes swing {
-            0%, 100% { transform: rotate(-5deg); }
-            50% { transform: rotate(5deg); }
+            0%, 100% { transform: rotate(-4deg); }
+            50% { transform: rotate(4deg); }
         }
         
         /* 卡片样式 */
@@ -166,7 +172,7 @@
             padding: 30px;
             text-align: center;
             transition: transform 0.3s ease;
-            margin-top: 160px;
+            margin-top: 140px;
         }
         
         .card:hover {
@@ -188,49 +194,34 @@
         
         /* 真实车牌样式 */
         .license-plate {
-            background: linear-gradient(to bottom, #1E90FF, #0D47A1);
+            background: #1E90FF;
             color: white;
-            padding: 15px 5px;
-            border-radius: 8px;
+            padding: 15px 10px;
             margin: 25px 0;
-            font-size: 28px;
+            font-size: 26px;
             font-weight: bold;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             box-shadow: 
                 0 5px 15px rgba(13, 71, 161, 0.3),
-                inset 0 0 10px rgba(255, 255, 255, 0.3);
+                inset 0 0 0 2px #0D47A1;
             position: relative;
             overflow: hidden;
-            border: 2px solid #0D47A1;
+            border: none;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-        
-        .license-plate::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.5);
-        }
-        
-        .license-plate::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .plate-province {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 2px 5px;
+            background: white;
+            color: #1E90FF;
+            padding: 3px 6px;
             border-radius: 3px;
-            margin-right: 5px;
+            margin-right: 8px;
+            font-weight: bold;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
         
         .contact-info {
@@ -314,6 +305,7 @@
         @media (max-width: 480px) {
             .card {
                 padding: 20px;
+                margin-top: 120px;
             }
             
             .title {
@@ -322,7 +314,7 @@
             
             .license-plate {
                 font-size: 22px;
-                letter-spacing: 3px;
+                letter-spacing: 2px;
             }
             
             .phone-number {
@@ -330,18 +322,18 @@
             }
             
             .lantern {
-                width: 70px;
-                height: 110px;
+                width: 65px;
+                height: 100px;
             }
             
             .lantern-body {
-                width: 70px;
-                height: 80px;
-                border-radius: 35px;
+                width: 65px;
+                height: 75px;
+                border-radius: 32px;
             }
             
             .lantern-text {
-                font-size: 20px;
+                font-size: 18px;
             }
         }
     </style>
@@ -378,6 +370,11 @@
         
         <div class="license-plate">
             <span class="plate-province">鄂E</span>16D79
+        </div>
+        
+        <div class="contact-info">
+            <div class="phone-number">15871642746</div>
+            <p>点击下方按钮直接联系车主</p>
         </div>
         
         <div class="actions">
