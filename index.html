@@ -26,16 +26,16 @@
         /*--lanterns--*/
         .deng-box {
             position: fixed;
-            top: -30px;
-            left: -30px;
+            top: 0;
+            left: 0;
             z-index: 9999;
             pointer-events: none;
         }
           
         .deng-box1 {
             position: fixed;
-            top: -30px;
-            right: -30px;
+            top: 0;
+            right: 0;
             z-index: 9999;
             pointer-events: none;
         }
@@ -48,8 +48,8 @@
             background: #fc0213;
             background: rgba(216, 0, 14, 0.8);
             border-radius: 50% 50%;
-            -webkit-transform-origin: 50% -100px;
-            -webkit-animation: swing 5s infinite ease-in-out;
+            transform-origin: 50% -150px;
+            animation: swing 5s infinite ease-in-out;
             box-shadow: -5px 5px 30px 4px rgb(255, 131, 36);
         }
          
@@ -61,8 +61,8 @@
             background: #fc0213;
             background: rgba(216, 0, 14, 0.8);
             border-radius: 50% 50%;
-            -webkit-transform-origin: 50% -100px;
-            -webkit-animation: swing 3s infinite ease-in-out;
+            transform-origin: 50% -150px;
+            animation: swing 3s infinite ease-in-out;
             box-shadow: -5px 5px 50px 4px rgb(255, 131, 36);
         }
          
@@ -88,10 +88,10 @@
          
         .xian {
             position: absolute;
-            top: -20px;
+            top: -150px;
             left: 60px;
             width: 2px;
-            height: 20px;
+            height: 150px;
             background: #dc8f03;
         }
          
@@ -100,8 +100,8 @@
             width: 5px;
             height: 20px;
             margin: -5px 0 0 59px;
-            -webkit-animation: swing 4s infinite ease-in-out;
-            -webkit-transform-origin: 50% -45px;
+            animation: swing 4s infinite ease-in-out;
+            transform-origin: 50% -45px;
             background: #ffa500;
             border-radius: 0 0 5px 5px;
         }
@@ -157,46 +157,28 @@
         }
          
         .deng-t {
-            font-family: cf;
-            font-size: 2rem;
+            font-family: Arial, sans-serif;
+            font-size: 1.8rem;
             color: #ffa500;
+            font-weight: bold;
             line-height: 30px;
             text-align: center;
             margin: 0 auto;
             margin-top: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
          
-        .night .deng-t,
-        .night .deng-box,
-        .night .deng-box1 {
-            background: transparent !important;
-        }
-         
-        @-moz-keyframes swing {
+        @keyframes swing {
             0% {
-                -moz-transform: rotate(-10deg)
+                transform: rotate(-10deg)
             }
          
             50% {
-                -moz-transform: rotate(10deg)
+                transform: rotate(10deg)
             }
           
             100% {
-                -moz-transform: rotate(-10deg)
-            }
-        }
-         
-        @-webkit-keyframes swing {
-            0% {
-                -webkit-transform: rotate(-10deg)
-            }
-         
-            50% {
-                -webkit-transform: rotate(10deg)
-            }
-         
-            100% {
-                -webkit-transform: rotate(-10deg)
+                transform: rotate(-10deg)
             }
         }
         
@@ -210,7 +192,7 @@
             padding: 30px;
             text-align: center;
             transition: transform 0.3s ease;
-            margin-top: 20px;
+            margin-top: 80px;
         }
         
         .card:hover {
@@ -232,34 +214,47 @@
         
         /* 真实车牌样式 */
         .license-plate {
-            background: #1E90FF;
+            background: linear-gradient(to bottom, #1E90FF, #0D47A1);
             color: white;
-            padding: 15px 10px;
+            padding: 18px 15px;
             margin: 25px 0;
-            font-size: 26px;
+            font-size: 28px;
             font-weight: bold;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             box-shadow: 
                 0 5px 15px rgba(13, 71, 161, 0.3),
-                inset 0 0 0 2px #0D47A1;
+                inset 0 0 0 3px #0D47A1,
+                inset 0 0 10px rgba(255, 255, 255, 0.2);
             position: relative;
             overflow: hidden;
-            border: none;
+            border: 2px solid #0D47A1;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
             display: flex;
             align-items: center;
             justify-content: center;
+            font-family: 'Arial Black', Arial, sans-serif;
         }
         
         .plate-province {
             display: inline-block;
-            background: white;
-            color: #1E90FF;
-            padding: 3px 6px;
-            border-radius: 3px;
+            color: white;
             margin-right: 8px;
             font-weight: bold;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .plate-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 10px;
+        }
+        
+        .plate-number {
+            display: inline-block;
+            color: white;
+            letter-spacing: 5px;
         }
         
         .contact-info {
@@ -343,7 +338,7 @@
         @media (max-width: 480px) {
             .card {
                 padding: 20px;
-                margin-top: 20px;
+                margin-top: 60px;
             }
             
             .title {
@@ -352,7 +347,8 @@
             
             .license-plate {
                 font-size: 22px;
-                letter-spacing: 2px;
+                letter-spacing: 3px;
+                padding: 15px 10px;
             }
             
             .phone-number {
@@ -360,15 +356,42 @@
             }
             
             .deng-box, .deng-box1 {
-                top: -50px;
+                top: 10px;
             }
             
             .deng-box {
-                left: -50px;
+                left: 10px;
             }
             
             .deng-box1 {
-                right: -50px;
+                right: 10px;
+            }
+            
+            .deng {
+                width: 90px;
+                height: 70px;
+                margin: 30px;
+            }
+            
+            .deng-a {
+                width: 75px;
+                height: 70px;
+            }
+            
+            .deng-b {
+                width: 35px;
+                height: 70px;
+                margin-left: 20px;
+            }
+            
+            .xian {
+                top: -120px;
+                left: 45px;
+                height: 120px;
+            }
+            
+            .deng-t {
+                font-size: 1.4rem;
             }
         }
     </style>
@@ -407,11 +430,11 @@
     
     <!-- 主要内容 -->
     <div class="card">
-        <h1 class="title">临时停车</h1>
-        <p class="subtitle">如需挪车，请通过以下方式联系我</p>
-        
+        <h1 class="title">临时停车 请多关照！</h1>
         <div class="license-plate">
-            <span class="plate-province">鄂E</span>16D79
+            <span class="plate-province">鄂E</span>
+            <span class="plate-dot"></span>
+            <span class="plate-number">16D79</span>
         </div>
         <div class="actions">
             <a href="tel:15871642746" class="btn btn-call">
