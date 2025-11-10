@@ -224,18 +224,17 @@
             font-weight: 600;
             display: inline-block;
             padding: 10px 20px;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            background: transparent;
             border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
             animation: titleSwing 3s infinite ease-in-out;
         }
         
         @keyframes titleSwing {
             0%, 100% {
-                transform: translateX(-5px);
+                transform: translateX(-15px);
             }
             50% {
-                transform: translateX(5px);
+                transform: translateX(15px);
             }
         }
         
@@ -245,11 +244,11 @@
             font-size: 16px;
         }
         
-        /* 真实车牌样式 - 上下渐变，边框变细 */
+        /* 真实车牌样式 - 与按钮高度一致 */
         .license-plate {
             background: linear-gradient(to bottom, #6eb6ff, #0D47A1);
             color: white;
-            padding: 18px 15px;
+            padding: 15px 15px;
             margin: 25px 0;
             font-size: 28px;
             font-weight: bold;
@@ -266,6 +265,7 @@
             align-items: center;
             justify-content: center;
             font-family: 'Arial Black', Arial, sans-serif;
+            height: 60px;
         }
         
         .plate-province {
@@ -327,6 +327,7 @@
             transition: all 0.3s ease;
             cursor: pointer;
             border: none;
+            height: 60px;
         }
         
         .btn-call {
