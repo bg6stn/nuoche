@@ -23,143 +23,181 @@
             overflow-x: hidden;
         }
         
-        /* 灯笼样式 */
-        .lanterns {
-            position: absolute;
-            top: 20px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 20px;
-            z-index: 10;
+        /*--lanterns--*/
+        .deng-box {
+            position: fixed;
+            top: -30px;
+            left: -30px;
+            z-index: 9999;
             pointer-events: none;
         }
-        
-        .lantern {
-            width: 80px;
-            height: 120px;
+          
+        .deng-box1 {
+            position: fixed;
+            top: -30px;
+            right: -30px;
+            z-index: 9999;
+            pointer-events: none;
+        }
+         
+        .deng-box1 .deng {
             position: relative;
-            animation: swing 4s infinite ease-in-out;
-        }
-        
-        .lantern.left {
-            animation-delay: 0.5s;
-        }
-        
-        .lantern.right {
-            animation-delay: 0s;
-        }
-        
-        .lantern-rope {
-            width: 3px;
-            height: 25px;
-            background: #8B4513;
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-        
-        .lantern-top {
-            width: 25px;
-            height: 12px;
-            background: #D2691E;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 5px 5px 0 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .lantern-body {
-            width: 80px;
+            width: 120px;
             height: 90px;
-            background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
-            border-radius: 40px;
-            position: absolute;
-            top: 12px;
-            left: 0;
-            box-shadow: 
-                inset 0 0 20px rgba(255, 215, 0, 0.3),
-                0 0 20px rgba(211, 47, 47, 0.5);
-            overflow: hidden;
+            margin: 50px;
+            background: #fc0213;
+            background: rgba(216, 0, 14, 0.8);
+            border-radius: 50% 50%;
+            -webkit-transform-origin: 50% -100px;
+            -webkit-animation: swing 5s infinite ease-in-out;
+            box-shadow: -5px 5px 30px 4px rgb(255, 131, 36);
         }
-        
-        .lantern-body::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2) 0%, transparent 10%),
-                radial-gradient(circle at 70% 70%, rgba(255,255,255,0.2) 0%, transparent 10%);
+         
+        .deng {
+            position: relative;
+            width: 120px;
+            height: 90px;
+            margin: 50px;
+            background: #fc0213;
+            background: rgba(216, 0, 14, 0.8);
+            border-radius: 50% 50%;
+            -webkit-transform-origin: 50% -100px;
+            -webkit-animation: swing 3s infinite ease-in-out;
+            box-shadow: -5px 5px 50px 4px rgb(255, 131, 36);
         }
-        
-        .lantern-ribs {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 40px;
-            border: 2px solid rgba(255, 215, 0, 0.5);
+         
+        .deng-a {
+            width: 100px;
+            height: 90px;
+            background: #d8000f;
+            background: rgba(216, 0, 15, 0.1);
+            margin: 12px 8px 8px 10px;
+            border-radius: 50% 50%;
+            border: 2px solid #dc8f03;
         }
-        
-        .lantern-bottom {
-            width: 25px;
-            height: 12px;
-            background: #D2691E;
+         
+        .deng-b {
+            width: 45px;
+            height: 90px;
+            background: #d8000f;
+            background: rgba(216, 0, 15, 0.1);
+            margin: -2px 8px 8px 26px;
+            border-radius: 50% 50%;
+            border: 2px solid #dc8f03;
+        }
+         
+        .xian {
             position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            top: -20px;
+            left: 60px;
+            width: 2px;
+            height: 20px;
+            background: #dc8f03;
+        }
+         
+        .shui-a {
+            position: relative;
+            width: 5px;
+            height: 20px;
+            margin: -5px 0 0 59px;
+            -webkit-animation: swing 4s infinite ease-in-out;
+            -webkit-transform-origin: 50% -45px;
+            background: #ffa500;
             border-radius: 0 0 5px 5px;
-            box-shadow: 0 -2px 4px rgba(0,0,0,0.3);
         }
-        
-        .lantern-tassel {
-            width: 4px;
-            height: 35px;
-            background: linear-gradient(to bottom, #FFD700, #8B4513);
+         
+        .shui-b {
             position: absolute;
-            bottom: -35px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-        
-        .lantern-tassel::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: -6px;
-            width: 16px;
-            height: 12px;
-            background: #FFD700;
+            top: 14px;
+            left: -2px;
+            width: 10px;
+            height: 10px;
+            background: #dc8f03;
             border-radius: 50%;
-            clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
         }
-        
-        .lantern-text {
+         
+        .shui-c {
             position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #FFD700;
-            font-weight: bold;
-            font-size: 22px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-            z-index: 2;
+            top: 18px;
+            left: -2px;
+            width: 10px;
+            height: 35px;
+            background: #ffa500;
+            border-radius: 0 0 0 5px;
         }
-        
-        .lantern-text.bottom {
-            top: 65%;
+         
+        .deng:before {
+            position: absolute;
+            top: -7px;
+            left: 29px;
+            height: 12px;
+            width: 60px;
+            content: " ";
+            display: block;
+            z-index: 999;
+            border-radius: 5px 5px 0 0;
+            border: solid 1px #dc8f03;
+            background: #ffa500;
+            background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
         }
-        
-        @keyframes swing {
-            0%, 100% { transform: rotate(-4deg); }
-            50% { transform: rotate(4deg); }
+         
+        .deng:after {
+            position: absolute;
+            bottom: -7px;
+            left: 10px;
+            height: 12px;
+            width: 60px;
+            content: " ";
+            display: block;
+            margin-left: 20px;
+            border-radius: 0 0 5px 5px;
+            border: solid 1px #dc8f03;
+            background: #ffa500;
+            background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+        }
+         
+        .deng-t {
+            font-family: cf;
+            font-size: 2rem;
+            color: #ffa500;
+            line-height: 30px;
+            text-align: center;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+         
+        .night .deng-t,
+        .night .deng-box,
+        .night .deng-box1 {
+            background: transparent !important;
+        }
+         
+        @-moz-keyframes swing {
+            0% {
+                -moz-transform: rotate(-10deg)
+            }
+         
+            50% {
+                -moz-transform: rotate(10deg)
+            }
+          
+            100% {
+                -moz-transform: rotate(-10deg)
+            }
+        }
+         
+        @-webkit-keyframes swing {
+            0% {
+                -webkit-transform: rotate(-10deg)
+            }
+         
+            50% {
+                -webkit-transform: rotate(10deg)
+            }
+         
+            100% {
+                -webkit-transform: rotate(-10deg)
+            }
         }
         
         /* 卡片样式 */
@@ -172,7 +210,7 @@
             padding: 30px;
             text-align: center;
             transition: transform 0.3s ease;
-            margin-top: 140px;
+            margin-top: 20px;
         }
         
         .card:hover {
@@ -305,7 +343,7 @@
         @media (max-width: 480px) {
             .card {
                 padding: 20px;
-                margin-top: 120px;
+                margin-top: 20px;
             }
             
             .title {
@@ -321,49 +359,53 @@
                 font-size: 20px;
             }
             
-            .lantern {
-                width: 65px;
-                height: 100px;
+            .deng-box, .deng-box1 {
+                top: -50px;
             }
             
-            .lantern-body {
-                width: 65px;
-                height: 75px;
-                border-radius: 32px;
+            .deng-box {
+                left: -50px;
             }
             
-            .lantern-text {
-                font-size: 18px;
+            .deng-box1 {
+                right: -50px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="lanterns">
-        <div class="lantern left">
-            <div class="lantern-rope"></div>
-            <div class="lantern-top"></div>
-            <div class="lantern-body">
-                <div class="lantern-ribs"></div>
-                <div class="lantern-text">出</div>
-                <div class="lantern-text bottom">入</div>
+    <!-- 灯笼 -->
+    <div class="deng-box">
+        <div class="deng">
+            <div class="xian"></div>
+            <div class="deng-a">
+                <div class="deng-b">
+                    <div class="deng-t">出入</div>
+                </div>
             </div>
-            <div class="lantern-bottom"></div>
-            <div class="lantern-tassel"></div>
-        </div>
-        <div class="lantern right">
-            <div class="lantern-rope"></div>
-            <div class="lantern-top"></div>
-            <div class="lantern-body">
-                <div class="lantern-ribs"></div>
-                <div class="lantern-text">平</div>
-                <div class="lantern-text bottom">安</div>
+            <div class="shui-a">
+                <div class="shui-b"></div>
+                <div class="shui-c"></div>
             </div>
-            <div class="lantern-bottom"></div>
-            <div class="lantern-tassel"></div>
         </div>
     </div>
     
+    <div class="deng-box1">
+        <div class="deng">
+            <div class="xian"></div>
+            <div class="deng-a">
+                <div class="deng-b">
+                    <div class="deng-t">平安</div>
+                </div>
+            </div>
+            <div class="shui-a">
+                <div class="shui-b"></div>
+                <div class="shui-c"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 主要内容 -->
     <div class="card">
         <h1 class="title">临时停车</h1>
         <p class="subtitle">如需挪车，请通过以下方式联系我</p>
@@ -371,12 +413,6 @@
         <div class="license-plate">
             <span class="plate-province">鄂E</span>16D79
         </div>
-        
-        <div class="contact-info">
-            <div class="phone-number">15871642746</div>
-            <p>点击下方按钮直接联系车主</p>
-        </div>
-        
         <div class="actions">
             <a href="tel:15871642746" class="btn btn-call">
                 <span class="icon">📞</span>
