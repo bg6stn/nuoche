@@ -232,15 +232,15 @@
             font-weight: 600;
             position: absolute;
             white-space: nowrap;
-            animation: titleMove 4s linear infinite;
+            animation: titleMoveRightToLeft 4s linear infinite;
         }
         
-        @keyframes titleMove {
+        @keyframes titleMoveRightToLeft {
             0% {
-                left: -100%;
+                left: 100%;
             }
             100% {
-                left: 100%;
+                left: -100%;
             }
         }
         
@@ -410,22 +410,18 @@
         <div class="title-container">
             <h1 class="title">临时停车 请多关照</h1>
         </div>
-        <div class="license-plate" id="licensePlate">
-            <!-- 车牌信息将通过JavaScript动态加载 -->
-        </div>
-        <div class="contact-info">
-            <div class="phone-number" id="phoneNumber">
-                <!-- 电话号码将通过JavaScript动态加载 -->
-            </div>
-            <p>点击下方按钮直接联系车主</p>
+        <div class="license-plate">
+            <span class="plate-province">鄂E</span>
+            <span class="plate-dot"></span>
+            <span class="plate-number">16D79</span>
         </div>
         <div class="actions">
-            <a href="#" class="btn btn-call" id="callButton">
+            <a href="tel:15871642746" class="btn btn-call">
                 <span class="icon">📞</span>
                 一键拨打电话
             </a>
             
-            <a href="#" class="btn btn-sms" id="smsButton">
+            <a href="sms:15871642746?body=您好，您的车辆（鄂E16D79）需要挪动一下，麻烦您了。" class="btn btn-sms">
                 <span class="icon">💬</span>
                 发送挪车短信
             </a>
@@ -441,93 +437,15 @@
     </div>
 
     <script>
-        // 从环境变量或默认值获取配置
-        const LICENSE_PLATE = typeof LICENSE_PLATE_ENV !== 'undefined' ? LICENSE_PLATE_ENV : '鄂E16D79';
-        const PHONE_NUMBER = typeof PHONE_NUMBER_ENV !== 'undefined' ? PHONE_NUMBER_ENV : '15871642746';
-        
-        // 解析车牌格式（假设格式为"鄂E16D79"）
-        function parseLicensePlate(plate) {
-            if (plate.length <= 2) {
-                return {
-                    province: plate,
-                    number: ''
-                };
-            }
-            
-            // 提取省份和号码
-            const province = plate.substring(0, 2);
-            const number = plate.substring(2);
-            
-            return {
-                province,
-                number
-            };
-        }
-        
-        // 初始化页面内容
-        function initializePage() {
-            // 设置车牌
-            const plateData = parseLicensePlate(LICENSE_PLATE);
-            const licensePlateElement = document.getElementById('licensePlate');
-            licensePlateElement.innerHTML = `
-                <span class="plate-province">${plateData.province}</span>
-                <span class="plate-dot"></span>
-                <span class="plate-number">${plateData.number}</span>
-            `;
-            
-            // 设置电话号码
-            document.getElementById('phoneNumber').textContent = PHONE_NUMBER;
-            
-            // 设置拨打电话链接
-            const callButton = document.getElementById('callButton');
-            callButton.href = `tel:${PHONE_NUMBER}`;
-            
-            // 设置发送短信链接
-            const smsButton = document.getElementById('smsButton');
-            smsButton.href = `sms:${PHONE_NUMBER}?body=您好，您的车辆（${LICENSE_PLATE}）需要挪动一下，麻烦您了。`;
-            
-            // 添加按钮点击动画效果
-            document.querySelectorAll('.btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    this.style.transform = 'scale(0.98)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
-                });
+        // 添加简单的点击动画效果
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
             });
-        }
-        
-        // 页面加载完成后初始化
-        document.addEventListener('DOMContentLoaded', initializePage);
-        
-        // 提供全局函数以便通过其他方式设置这些值
-        window.updateContactInfo = function(plate, phone) {
-            if (plate) {
-                const plateData = parseLicensePlate(plate);
-                const licensePlateElement = document.getElementById('licensePlate');
-                licensePlateElement.innerHTML = `
-                    <span class="plate-province">${plateData.province}</span>
-                    <span class="plate-dot"></span>
-                    <span class="plate-number">${plateData.number}</span>
-                `;
-                
-                // 更新短信链接中的车牌信息
-                const smsButton = document.getElementById('smsButton');
-                smsButton.href = `sms:${PHONE_NUMBER}?body=您好，您的车辆（${plate}）需要挪动一下，麻烦您了。`;
-            }
-            
-            if (phone) {
-                document.getElementById('phoneNumber').textContent = phone;
-                
-                // 更新电话和短信链接
-                const callButton = document.getElementById('callButton');
-                callButton.href = `tel:${phone}`;
-                
-                const smsButton = document.getElementById('smsButton');
-                const currentPlate = plate || LICENSE_PLATE;
-                smsButton.href = `sms:${phone}?body=您好，您的车辆（${currentPlate}）需要挪动一下，麻烦您了。`;
-            }
-        };
+        });
     </script>
 </body>
 </html>
