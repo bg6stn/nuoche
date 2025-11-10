@@ -217,24 +217,30 @@
             transform: translateY(-5px);
         }
         
-        .title {
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 24px;
-            font-weight: 600;
-            display: inline-block;
-            padding: 10px 20px;
-            background: transparent;
-            border-radius: 10px;
-            animation: titleSwing 3s infinite ease-in-out;
+        .title-container {
+            position: relative;
+            width: 100%;
+            height: 60px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+            overflow: hidden;
         }
         
-        @keyframes titleSwing {
-            0%, 100% {
-                transform: translateX(-15px);
+        .title {
+            color: #333;
+            font-size: 24px;
+            font-weight: 600;
+            position: absolute;
+            white-space: nowrap;
+            animation: titleMove 4s linear infinite;
+        }
+        
+        @keyframes titleMove {
+            0% {
+                left: -100%;
             }
-            50% {
-                transform: translateX(15px);
+            100% {
+                left: 100%;
             }
         }
         
@@ -244,7 +250,7 @@
             font-size: 16px;
         }
         
-        /* 真实车牌样式 - 与按钮高度一致 */
+        /* 真实车牌样式 - 圆角与按钮一致，添加阴影 */
         .license-plate {
             background: linear-gradient(to bottom, #6eb6ff, #0D47A1);
             color: white;
@@ -253,10 +259,7 @@
             font-size: 28px;
             font-weight: bold;
             letter-spacing: 4px;
-            box-shadow: 
-                0 5px 15px rgba(13, 71, 161, 0.3),
-                inset 0 0 0 1px #0D47A1,
-                inset 0 0 10px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(13, 71, 161, 0.4);
             position: relative;
             overflow: hidden;
             border: 1px solid #0D47A1;
@@ -266,6 +269,7 @@
             justify-content: center;
             font-family: 'Arial Black', Arial, sans-serif;
             height: 60px;
+            border-radius: 10px;
         }
         
         .plate-province {
@@ -328,23 +332,22 @@
             cursor: pointer;
             border: none;
             height: 60px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .btn-call {
             background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
             color: white;
-            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
         }
         
         .btn-sms {
             background: linear-gradient(135deg, #2196F3 0%, #0D47A1 100%);
             color: white;
-            box-shadow: 0 5px 15px rgba(13, 71, 161, 0.3);
         }
         
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
         
         .btn:active {
@@ -404,7 +407,9 @@
     
     <!-- 主要内容 -->
     <div class="card">
-        <h1 class="title">临时停车 请多关照</h1>
+        <div class="title-container">
+            <h1 class="title">临时停车 请多关照</h1>
+        </div>
         <div class="license-plate">
             <span class="plate-province">鄂E</span>
             <span class="plate-dot"></span>
